@@ -47,16 +47,20 @@
         },
         "positions": {
             "c41efa": {
-                "x": 675,
-                "y": 89
+                "x": 667,
+                "y": 227
             },
             "x3876": {
-                "x": 355,
-                "y": 84
+                "x": 356,
+                "y": 227
             },
             "kpj07k": {
-                "x": 80,
-                "y": 80
+                "x": 99,
+                "y": 260
+            },
+            "vc86uh": {
+                "x": 351,
+                "y": 41
             }
         }
     },
@@ -70,14 +74,21 @@
         },
         {
             "id": "x3876",
-            "name": "scripts",
+            "name": "applications",
             "color": "table-header-green",
             "softDelete": false,
             "timeStamp": true
         },
         {
             "id": "kpj07k",
-            "name": "script_types",
+            "name": "application_types",
+            "color": "table-header-green",
+            "softDelete": false,
+            "timeStamp": true
+        },
+        {
+            "id": "vc86uh",
+            "name": "application_groups",
             "color": "table-header-green",
             "softDelete": false,
             "timeStamp": true
@@ -97,6 +108,29 @@
                 "unique": true,
                 "index": true,
                 "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "xe3go7",
+                "name": "name",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
                 "foreignKey": {
                     "references": {
                         "id": "",
@@ -135,7 +169,7 @@
             },
             {
                 "id": "1skigg",
-                "name": "script_type_id",
+                "name": "application_type_id",
                 "type": "integer",
                 "length": "",
                 "defValue": "",
@@ -152,7 +186,7 @@
                     },
                     "on": {
                         "id": "kpj07k",
-                        "name": "script_types"
+                        "name": "application_types"
                     }
                 }
             },
@@ -199,6 +233,52 @@
                     "on": {
                         "id": "c41efa",
                         "name": "accounts"
+                    }
+                }
+            },
+            {
+                "id": "vib5eq",
+                "name": "name",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "1dlw3",
+                "name": "application_groups",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": true,
+                "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "3fiije",
+                        "name": "id"
+                    },
+                    "on": {
+                        "id": "vc86uh",
+                        "name": "application_groups"
                     }
                 }
             }
@@ -250,6 +330,77 @@
                     }
                 }
             }
+        ],
+        "vc86uh": [
+            {
+                "id": "3fiije",
+                "name": "id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": true,
+                "nullable": false,
+                "unique": true,
+                "index": true,
+                "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "j9jnkj",
+                "name": "name",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "3rxxrc",
+                "name": "account_id",
+                "type": "bigInteger",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": true,
+                "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "na51nk",
+                        "name": "id"
+                    },
+                    "on": {
+                        "id": "c41efa",
+                        "name": "accounts"
+                    }
+                }
+            }
         ]
     },
     "relations": [
@@ -271,6 +422,26 @@
             "target": {
                 "columnId": "na51nk",
                 "tableId": "c41efa"
+            }
+        },
+        {
+            "source": {
+                "columnId": "3rxxrc",
+                "tableId": "vc86uh"
+            },
+            "target": {
+                "columnId": "na51nk",
+                "tableId": "c41efa"
+            }
+        },
+        {
+            "source": {
+                "columnId": "1dlw3",
+                "tableId": "x3876"
+            },
+            "target": {
+                "columnId": "3fiije",
+                "tableId": "vc86uh"
             }
         }
     ]
